@@ -9,7 +9,6 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
 }
@@ -18,11 +17,107 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+/* Pen-specific styles */
+* {
+  box-sizing: border-box;
 }
+body {
+  font-size: 1.25rem;
+  font-family: sans-serif;
+  line-height: 150%;
+  text-shadow: 0 2px 2px #b6701e;
+}
+
+section {
+  color: #fff;
+  text-align: center;
+}
+
+div {
+  height: 100%;
+}
+
+article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.container {
+  display: table;
+  width: 100%;
+}
+
+.left-half {
+  background-color: #ff9e2c;
+  position: absolute;
+  left: 0px;
+  width: 50%;
+}
+
+.right-half {
+  background-color: #b6701e;
+  position: absolute;
+  right: 0px;
+  width: 50%;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+textarea.form-control.code-height {
+  height: 75%;
+  margin-top: 3%;
+}
+
+article.card-height {
+  height: 100%;
+}
+
+label.upload-task-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.devices-card-height {
+  height: fit-content;
+  padding: 2.5%;
+}
+
+.card-height.tasks-card-height {
+  padding: 2.5%;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.flex-value {
+  flex: 1;
+  text-align: left;
+}
+
+.flex-value.device-specification {
+  flex: 1;
+  color: #222222;
+  text-shadow: none;
+  margin-top: 15px;
+}
+
+
+.card-body.no-padding {
+  padding: 1%;
+}
+
