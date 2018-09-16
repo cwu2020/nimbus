@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {fetch} from "whatwg-fetch";
 
 class App extends Component {
 
@@ -7,7 +8,8 @@ class App extends Component {
        super(props);
        this.state = {
            task: "",
-           queue: []
+           queue: [],
+           time: "Short",
        }
        this.onClickSubmit.bind(this);
    }
@@ -50,12 +52,32 @@ class App extends Component {
        this.setState({task: event.target.value});
   }
 
-  onClickSubmit() {
-       const task = this.state.task;
-       const newQueue = this.state.queue.concat([task]);
-       console.log(newQueue);
-       this.setState({queue: newQueue, task: ""});
+  onChangeTime(event) {
+        this.setState({time: event.target.value});
   }
+
+  onClickSubmit() {
+      const task = this.state.task;
+      const newQueue = this.state.queue.concat([task]);
+      console.log(newQueue);
+      this.setState({queue: newQueue, task: ""});
+      var data = {algo: task, time: this.state.time};
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === 4) {
+              console.log(this.responseText);
+          }
+      });
+
+      xhr.open("POST", "https://1142a365.ngrok.io/compute/add/task");
+      xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+      xhr.setRequestHeader("accept", "application/json");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.send(JSON.stringify(data));
+   }
 
   render() {
       return (
@@ -69,7 +91,15 @@ class App extends Component {
                         <div className="form-group">
                             <label className="upload-task-title">Upload Task</label>
                             <textarea className="form-control code-height" value={this.state.task} onChange={this.onChangeTextarea.bind(this)}></textarea>
-                            <br />
+
+                            <div className="time-title" style={{marginTop: "5px"}}>Time Estimate</div>
+                            <div style={{height: "fit-content", marginTop: "15px"}} />
+                            <select name="time" onChange={this.onChangeTime.bind(this)}>
+                                <option>Short</option>
+                                <option>Medium</option>
+                                <option>Long</option>
+                            </select>
+                            <div style={{height: "fit-content", marginTop: "15px"}} />
                             <button type="button" className="btn btn-primary" onClick={this.onClickSubmit.bind(this)}>Submit task</button>
                         </div>
                     </div>

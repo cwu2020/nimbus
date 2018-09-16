@@ -121,3 +121,8 @@ label.upload-task-title {
   padding: 1%;
 }
 
+.time-title {
+  height: fit-content;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
