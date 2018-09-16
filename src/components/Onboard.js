@@ -16,9 +16,11 @@ export default class Onboard extends Component {
       return (
         <Onboarding
           pages={[
-            { backgroundColor: '#78c9f2', image: <Image source={require('../assets/animated_map.gif')} style={{width: 300, height: 300}}/>, title: 'Navigate', subtitle: 'Walking Directions Reinvented' },
-            { backgroundColor: "#a6e0a7", image: <Image source={require('../assets/map.png')} style={{width: 250, height: 200}}/>, title: 'Direct', subtitle: 'Enter a location to walk to' },
-            { backgroundColor: "#f6f6ee", image: <Image source={require('../assets/AR.png')} style={{width: 200, height: 200}}/>, title: 'View', subtitle: 'View directions in Augmented Reality' },
+            { backgroundColor: '#EB5E65', image: <Image source={require('../assets/animated_nap.gif')} style={{width: 300, height: 300}}/>, title: 'Welcome!', subtitle: 'While you sleep, we lend your idle computing power to someone who needs it. Boom.' },
+            { backgroundColor: '#D6DED1', image: <Image source={require('../assets/plug.jpg')} style={{width: 300, height: 300}}/>, title: 'Step 1:', subtitle: 'Plug in your phone.' },
+            { backgroundColor: "#3260AE", image: <Image source={require('../assets/facebook.jpg')} style={{width: 301, height: 167}}/>, title: 'Step 2:', subtitle: 'Log into Facebook.' },
+            { backgroundColor: "#F5F7FA", image: <Image source={require('../assets/animated_phone.gif')} style={{width: 300, height: 300}}/>, title: 'Step 4:', subtitle: 'Tell us about your phone.' },
+            { backgroundColor: "#EB5240", image: <Image source={require('../assets/animated_lock.gif')} style={{width: 300, height: 300}}/>, title: 'Step 5:', subtitle: 'Thats it! Lock your phone and walk away.' },
           ]}
           onEnd={() => this.setState({completedOnboarding: true})}
         />
