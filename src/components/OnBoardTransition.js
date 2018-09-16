@@ -12,6 +12,8 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 
+import nodejs from 'nodejs-mobile-react-native';
+
 export default class OnBoardTransition extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,18 @@ export default class OnBoardTransition extends Component {
 
   render() {
     return (
-	    <Text style={{"paddingTop": "50%"}}>Do amazing stuff here</Text>
+	    <Text style={{"paddingTop": "50%"}}></Text>
     )
+  }
+
+  componentWillMount() {
+    nodejs.start("main.js");
+    nodejs.channel.addListener(
+      "message",
+      (msg) => {
+        alert("From node: " + msg);
+      },
+      this
+    );
   }
 }

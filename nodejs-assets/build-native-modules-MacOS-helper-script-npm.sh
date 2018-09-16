@@ -1,0 +1,5 @@
+#!/bin/bash
+      # Helper script for Gradle to call npm on macOS in case it is not found
+      export PATH=$PATH:/Users/kavehkhorram/hackathons2018/Navigate/node_modules/nodejs-mobile-react-native/node_modules/.bin:/Users/kavehkhorram/.config/yarn/link/node_modules/.bin:/Users/kavehkhorram/hackathons2018/Navigate/node_modules/nodejs-mobile-react-native/node_modules/.bin:/Users/kavehkhorram/.config/yarn/link/node_modules/.bin:/usr/local/Cellar/node/9.8.0/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/9.8.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/kavehkhorram/.rvm/gems/ruby-2.4.2/bin:/Users/kavehkhorram/.rvm/gems/ruby-2.4.2@global/bin:/Users/kavehkhorram/.rvm/rubies/ruby-2.4.2/bin:/opt/local/bin:/opt/local/sbin:/Users/kavehkhorram/miniconda3/bin:/Users/kavehkhorram/Downloads/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kavehkhorram/.rvm/bin:/Users/kavehkhorram/.rvm/bin
+      npm $@
+    
