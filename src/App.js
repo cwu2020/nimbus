@@ -6,17 +6,19 @@ class App extends Component {
    constructor(props) {
        super(props);
        this.state = {
-           task: ""
+           task: "",
+           queue: []
        }
+       this.onClickSubmit.bind(this);
    }
 
    renderButton(type) {
        if (type === 'Available') {
-           return <button type="button" class="btn btn-success" style={{marginLeft: "60px", marginTop: "20px"}}>Available</button>;
+           return <button type="button" className="btn btn-success" style={{marginLeft: "60px", marginTop: "20px"}}>Available</button>;
        } else if (type === 'Idle') {
-           return <button type="button" class="btn btn-secondary btn-lg" style={{marginLeft: "60px", marginTop: "20px"}}>Idle</button>;
+           return <button type="button" className="btn btn-secondary btn-lg" style={{marginLeft: "60px", marginTop: "20px"}}>Idle</button>;
        } else {
-           return <button type="button" class="btn btn-primary" style={{marginLeft: "60px", marginTop: "20px"}}>In Use</button>
+           return <button type="button" className="btn btn-primary" style={{marginLeft: "60px", marginTop: "20px"}}>In Use</button>
        }
    }
 
@@ -49,7 +51,10 @@ class App extends Component {
   }
 
   onClickSubmit() {
-       console.log(this.state.task);
+       const task = this.state.task;
+       const newQueue = this.state.queue.concat([task]);
+       console.log(newQueue);
+       this.setState({queue: newQueue, task: ""});
   }
 
   render() {
@@ -58,18 +63,18 @@ class App extends Component {
             <header className="App-header">
                 <h1 className="App-title">Nimbus</h1>
             </header>
-            <section class="container">
-                <div class="left-half">
+            <section className="container">
+                <div className="left-half">
                     <div className="card-height tasks-card-height">
-                        <div class="form-group">
+                        <div className="form-group">
                             <label className="upload-task-title">Upload Task</label>
                             <textarea className="form-control code-height" value={this.state.task} onChange={this.onChangeTextarea.bind(this)}></textarea>
                             <br />
-                            <button type="button" class="btn btn-primary" onClick={this.onClickSubmit.bind(this)}>Submit task</button>
+                            <button type="button" className="btn btn-primary" onClick={this.onClickSubmit.bind(this)}>Submit task</button>
                         </div>
                     </div>
                 </div>
-                <div class="right-half">
+                <div className="right-half">
                     <div className="devices-card-height">
                         <label className="upload-task-title">Devices Registered</label>
                         {this.renderDevice({type: 'In Use', name: "iPhone X", software: "iOS 11"})}
