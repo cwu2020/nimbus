@@ -1,0 +1,10 @@
+#here is how you would configure Docker to run a container with the Vagrant shared directory mounted inside of it
+
+
+Vagrant.configure("2") do |config|
+  config.vm.provision "docker" do |d|
+    d.run "neilgaurav/sad_bose",
+      cmd: "bash -l",
+      args: "-v '/vagrant:/var/www'"
+  end
+end
