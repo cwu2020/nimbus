@@ -14,6 +14,8 @@ import {
 
 import nodejs from 'nodejs-mobile-react-native';
 
+let algo = "var rn_bridge = require('rn-bridge'); rn_bridge.channel.on('message', (msg) => { rn_bridge.channel.send(msg);});rn_bridge.channel.send('Node was initialized.');"
+
 export default class OnBoardTransition extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +29,7 @@ export default class OnBoardTransition extends Component {
   }
 
   componentWillMount() {
-    nodejs.start("main.js");
+    nodejs.startWithScript(algo);
     nodejs.channel.addListener(
       "message",
       (msg) => {
